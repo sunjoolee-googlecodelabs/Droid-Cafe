@@ -18,6 +18,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        if(savedInstanceState != null){
+            mOrderMessageArray = savedInstanceState.getStringArray("mOrderMessageArray") as Array<String>
+        }
+
         val fab = findViewById<FloatingActionButton>(R.id.fab)
         fab.apply{
             setImageResource(R.drawable.ic_shopping_cart)
@@ -26,6 +30,14 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra(EXTRA_ORDER_MESSAGE, mOrderMessageArray)
                 startActivity(intent)
             }
+        }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+
+        if(!mOrderMessageArray.isEmpty()){
+           outState.putStringArray("mOrderMessageArray", mOrderMessageArray)
         }
     }
 

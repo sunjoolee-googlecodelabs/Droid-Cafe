@@ -25,6 +25,7 @@
         android:layout_marginTop="24dp"
         android:background="@drawable/donut_circle"
         android:contentDescription="@string/donuts"
+        android:onClick="showDonutOrder"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textintro" />
 
@@ -48,6 +49,7 @@
         android:layout_marginTop="24dp"
         android:background="@drawable/icecream_circle"
         android:contentDescription="@string/ice_cream_sandwiches"
+        android:onClick="showIceCreamOrder"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/donut" />
 
@@ -71,6 +73,7 @@
         android:layout_marginTop="24dp"
         android:background="@drawable/froyo_circle"
         android:contentDescription="@string/froyo"
+        android:onClick="showFroyoOrder"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ice_cream" />
 
@@ -85,5 +88,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/froyo"
         app:layout_constraintTop_toTopOf="@id/froyo" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

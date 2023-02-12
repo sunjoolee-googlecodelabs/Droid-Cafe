@@ -3,6 +3,7 @@ package googlecodelabs.droidcafe
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log.d
+import android.view.View
 import android.widget.TextView
 
 class OrderActivity : AppCompatActivity() {
@@ -25,4 +26,6 @@ class OrderActivity : AppCompatActivity() {
             orderTextView.text = orderMessage
         }
     }
+
+    fun onRadioButtonClicked(view: View) {}
 }

@@ -12,14 +12,14 @@ const val EXTRA_ORDER_MESSAGE :String = "googlecodelabs.droidcafe.extra.ORDER_ME
 
 class MainActivity : AppCompatActivity() {
 
-    private var mOrderMessageArray : Array<String> = arrayOf()
+    private var mOrderMessage : String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         if(savedInstanceState != null){
-            mOrderMessageArray = savedInstanceState.getStringArray("mOrderMessageArray") as Array<String>
+            mOrderMessage = savedInstanceState.getString("mOrderMessage") as String
         }
 
         val fab = findViewById<FloatingActionButton>(R.id.fab)
@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
             setImageResource(R.drawable.ic_shopping_cart)
             setOnClickListener {
                 val intent = Intent(context, OrderActivity::class.java)
-                intent.putExtra(EXTRA_ORDER_MESSAGE, mOrderMessageArray)
+                intent.putExtra(EXTRA_ORDER_MESSAGE, mOrderMessage)
                 startActivity(intent)
             }
         }
@@ -36,8 +36,8 @@ class MainActivity : AppCompatActivity() {
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
 
-        if(!mOrderMessageArray.isEmpty()){
-           outState.putStringArray("mOrderMessageArray", mOrderMessageArray)
+        if(mOrderMessage.isNotBlank()){
+           outState.putString("mOrderMessage", mOrderMessage)
         }
     }
 
@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        mOrderMessageArray = mOrderMessageArray.plus(orderMessage)
+        mOrderMessage = orderMessage
         displayToast(orderMessage)
     }
 

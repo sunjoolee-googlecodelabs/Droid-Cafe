@@ -16,18 +16,13 @@ class OrderActivity : AppCompatActivity() {
         orderTextView = findViewById(R.id.order_text_view)
 
         val intent = intent
-        val orderMessageArray = intent.getStringArrayExtra(EXTRA_ORDER_MESSAGE)
+        val orderMessage = intent.getStringExtra(EXTRA_ORDER_MESSAGE)
 
-        if(orderMessageArray?.isEmpty() == true){
+        if((orderMessage == null)||(orderMessage?.isBlank() == true)){
             orderTextView.text = "No orders yet"
         }
         else{
-            var orderTextBody = ""
-            orderMessageArray?.forEach {
-                orderTextBody = orderTextBody + it + "\n"
-            }
-
-            orderTextView.text = orderTextBody
+            orderTextView.text = orderMessage
         }
     }
 }

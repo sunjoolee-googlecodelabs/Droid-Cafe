@@ -17,4 +17,6 @@
     <string name="enter_address_hint">Enter your address</string>
     <string name="phone_label_text">Phone</string>
     <string name="enter_phone_hint">Enter your phone</string>
+    <string name="note_label_text">Note</string>
+    <string name="enter_note_hint">Enter note</string>
 </resources>

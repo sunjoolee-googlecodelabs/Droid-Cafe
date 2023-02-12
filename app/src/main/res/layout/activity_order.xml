@@ -129,7 +129,7 @@
         android:text="@string/delivery_label_text"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/note_edit_text"/>
+        app:layout_constraintTop_toBottomOf="@id/note_edit_text" />
 
     <RadioGroup
         android:layout_width="wrap_content"
@@ -145,19 +145,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onRadioButtonClicked"
-            android:text="@string/same_day_messenger_service"/>
+            android:text="@string/same_day_messenger_service" />
+
         <RadioButton
             android:id="@+id/nextday_radio_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:checked="true"
             android:onClick="onRadioButtonClicked"
-            android:text="@string/next_day_ground_delivery"/>
+            android:text="@string/next_day_ground_delivery" />
+
         <RadioButton
             android:id="@+id/pickup_radio_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onRadioButtonClicked"
-            android:text="@string/pick_up"/>
+            android:text="@string/pick_up" />
     </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

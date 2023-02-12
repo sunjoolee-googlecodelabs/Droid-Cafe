@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log.d
 import android.view.View
+import android.widget.RadioButton
 import android.widget.TextView
+import android.widget.Toast
 
 class OrderActivity : AppCompatActivity() {
 
@@ -27,5 +29,16 @@ class OrderActivity : AppCompatActivity() {
         }
     }
 
-    fun onRadioButtonClicked(view: View) {}
+    fun onRadioButtonClicked(view: View) {
+        val checked:Boolean = (view as RadioButton).isChecked
+        when(view.id){
+            R.id.sameday_radio_button -> if (checked) displayToast(getString(R.string.same_day_messenger_service))
+            R.id.nextday_radio_button -> if (checked) displayToast(getString(R.string.next_day_ground_delivery))
+            R.id.pickup_radio_button -> if (checked) displayToast(getString(R.string.pick_up))
+        }
+    }
+    private fun displayToast(message: String) {
+        Toast.makeText(applicationContext, message, Toast.LENGTH_SHORT).show()
+    }
+
 }

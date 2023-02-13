@@ -4,11 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log.d
 import android.view.View
-import android.widget.RadioButton
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 
-class OrderActivity : AppCompatActivity() {
+class OrderActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
     lateinit var orderTextView : TextView
 
@@ -27,6 +25,20 @@ class OrderActivity : AppCompatActivity() {
         else{
             orderTextView.text = orderMessage
         }
+
+        val spinner : Spinner = findViewById(R.id.phone_label_spinner)
+
+        val arrayAdapter : ArrayAdapter<CharSequence> = ArrayAdapter.createFromResource(
+            this,
+            R.array.phone_labels_array,
+            android.R.layout.simple_spinner_item)
+
+        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+        spinner?.apply{
+            onItemSelectedListener = this@OrderActivity
+            adapter = arrayAdapter
+        }
     }
 
     fun onRadioButtonClicked(view: View) {
@@ -39,6 +51,14 @@ class OrderActivity : AppCompatActivity() {
     }
     private fun displayToast(message: String) {
         Toast.makeText(applicationContext, message, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onNothingSelected(p0: AdapterView<*>?) {
+        TODO("Not yet implemented")
     }
 
 }

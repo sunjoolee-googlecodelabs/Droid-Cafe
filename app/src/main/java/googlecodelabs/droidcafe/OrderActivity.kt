@@ -53,12 +53,13 @@ class OrderActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         Toast.makeText(applicationContext, message, Toast.LENGTH_SHORT).show()
     }
 
-    override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-        TODO("Not yet implemented")
+    override fun onItemSelected(adapterView: AdapterView<*>?, view: View?, i: Int, l: Long) {
+        val spinnerLabel : String = adapterView?.getItemAtPosition(i).toString()
+        displayToast(spinnerLabel)
     }
 
     override fun onNothingSelected(p0: AdapterView<*>?) {
-        TODO("Not yet implemented")
+        //no need to implement in this codelab
     }
 
 }
